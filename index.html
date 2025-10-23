@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تصاميم يلاش — معرض الصور</title>
+<style>
+:root{
+  --accent:#4e54c8;
+  --accent2:#8f94fb;
+  --bg:#f5f7fb;
+  --card:#fff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Cairo", Tahoma, Arial, sans-serif;
+  background:var(--bg);
+  color:#111;
+}
+.wrap{max-width:1200px;margin:0 auto;padding:18px}
+header{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  padding:26px 18px;
+  border-bottom-left-radius:18px;
+  border-bottom-right-radius:18px;
+  text-align:center;
+}
+header h1{margin:0;font-size:28px}
+header p{margin:6px 0 0;font-size:16px;opacity:.9}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:18px;
+  margin-top:20px;
+}
+.card{
+  background:var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 8px 30px rgba(16,24,40,0.06);
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+}
+.card:hover{transform:translateY(-6px);transition:.2s}
+.card .imgwrap{width:100%;height:360px;overflow:hidden;background:#eee}
+.card img{width:100%;height:100%;object-fit:cover;display:block}
+.card .body{padding:14px}
+.card h3{margin:0 0 6px;font-size:18px}
+.meta{color:#666;font-size:14px;margin-bottom:8px}
+.price{font-weight:700;color:#222;margin-bottom:10px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:var(--accent);color:#fff;border:0;padding:10px 12px;border-radius:10px;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid #ddd;color:#333}
+.btn.free{background:#2ecc71}
+.btn.buy{background:#ff7a5c}
+.note{font-size:13px;color:#666;margin-top:10px}
+
+/* Modal */
+.modal-back{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:18px;z-index:60}
+.modal{background:#fff;border-radius:12px;max-width:520px;width:100%;padding:16px;box-shadow:0 12px 40px rgba(2,6,23,0.2)}
+label{display:block;margin-top:10px;font-size:14px}
+input[type="text"]{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6f0;margin-top:6px}
+.admin{background:#fff;padding:12px;border-radius:10px;margin-top:18px;box-shadow:0 6px 18px rgba(16,24,40,0.05)}
+.admin h3{margin:0 0 8px}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+th,td{padding:8px;border-bottom:1px solid #efefef;text-align:right}
+th{background:#fafafa}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+@media (max-width:480px){
+  .card .imgwrap{height:220px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>تصاميم يلاش</h1>
+<p>معرض صور — مجاني ومدفوع. كل السجلات محليًا فقط.</p>
+</header>
+<main class="wrap">
+<section class="gallery" id="gallery">
+
+<!-- الصور المجانية -->
+<article class="card" data-id="free1" data-title="تصميم مجاني 1" data-price="0" data-free="1">
+<div class="imgwrap"><img src="https://cdn.discordapp.com/attachments/1430972961778700341/1430973990922616972/Picsart_25-10-20_19-02-52-446.png?ex=68fbb9e1&is=68fa6861&hm=ca7e5d91d6b0c6892ec329a3872d66c0bbf13a442038a721c89adadd1ed322e4&" alt="تصميم مجاني 1"></div>
+<div class="body">
+<h3>تصميم مجاني</h3>
+<div class="meta">مجاناً — يمكنك تنزيل هذا التصميم</div>
+<div class="actions">
+<button class="btn free download-btn" data-src="https://cdn.discordapp.com/attachments/1430972961778700341/1430973990922616972/Picsart_25-10-20_19-02-52-446.png?ex=68fbb9e1&is=68fa6861&hm=ca7e5d91d6b0c6892ec329a3872d66c0bbf13a442038a721c89adadd1ed322e4&">تنزيل</button>
+</div></div></article>
+
+<article class="card" data-id="free2" data-title="تصميم مجاني 2" data-price="0" data-free="1">
+<div class="imgwrap"><img src="https://cdn.discordapp.com/attachments/1430972961778700341/1430973993233682464/Picsart_25-10-17_18-22-56-516.jpg?ex=68fbb9e2&is=68fa6862&hm=1131f43fb95006cfb926ce2c31c8f843066b3e03189009e311952b29abafd012&" alt="تصميم مجاني 2"></div>
+<div class="body">
+<h3>تصميم مجاني</h3>
+<div class="meta">مجاناً — يمكنك تنزيل هذا التصميم</div>
+<div class="actions">
+<button class="btn free download-btn" data-src="https://cdn.discordapp.com/attachments/1430972961778700341/1430973993233682464/Picsart_25-10-17_18-22-56-516.jpg?ex=68fbb9e2&is=68fa6862&hm=1131f43fb95006cfb926ce2c31c8f843066b3e03189009e311952b29abafd012&">تنزيل</button>
+</div></div></article>
+
+<!-- الصور المدفوعة -->
+<article class="card" data-id="paid1" data-title="تصميم مدفوع 1" data-price="10" data-free="0">
+<div class="imgwrap"><img src="https://cdn.discordapp.com/attachments/1430972961778700341/1430973991455297626/Picsart_25-10-20_19-09-46-951.jpg?ex=68fbb9e1&is=68fa6861&hm=5e0dfb970db47627adab97c199a669a57eaf89bba8acd9b926581606344d8ac4&" alt="تصميم مدفوع 1"></div>
+<div class="body"><h3>تصميم مدفوع</h3>
+<div class="meta">السعر: 10$</div>
+<div class="actions"><button class="btn buy buy-btn">شراء — 10$</button></div></div></article>
+
+<article class="card" data-id="paid2" data-title="تصميم مدفوع 2" data-price="10" data-free="0">
+<div class="imgwrap"><img src="https://cdn.discordapp.com/attachments/1430972961778700341/1430973991933313206/Picsart_25-10-20_18-53-16-588.jpg?ex=68fbb9e1&is=68fa6861&hm=bb16dfadfb07885ec4e07d8a8048c83768421352d23b3e7344416316ac51c4f4&" alt="تصميم مدفوع 2"></div>
+<div class="body"><h3>تصميم مدفوع</h3>
+<div class="meta">السعر: 10$</div>
+<div class="actions"><button class="btn buy buy-btn">شراء — 10$</button></div></div></article>
+
+<article class="card" data-id="paid3" data-title="تصميم مدفوع 3" data-price="10" data-free="0">
+<div class="imgwrap"><img src="https://cdn.discordapp.com/attachments/1430972961778700341/1430973992663253092/Picsart_25-10-17_19-43-17-429.jpg?ex=68fbb9e2&is=68fa6862&hm=452787570179846f24951ce43d2ce03146c30693676295b6bc17adfcc7fe5a7b&" alt="تصميم مدفوع 3"></div>
+<div class="body"><h3>تصميم مدفوع</h3>
+<div class="meta">السعر: 10$</div>
+<div class="actions"><button class="btn buy buy-btn">شراء — 10$</button></div></div></article>
+
+<article class="card" data-id="paid4" data-title="تصميم مدفوع 4" data-price="10" data-free="0">
+<div class="imgwrap"><img src="https://cdn.discordapp.com/attachments/1430975485600596081/1430978157787480194/Picsart_25-10-23_20-54-56-967.jpg?ex=68fbbdc3&is=68fa6c43&hm=f3a3ebe810476e587af0f78077cdad9dbdb1eb66a3fbeb45f2005fec12e737eb&" alt="تصميم مدفوع 4"></div>
+<div class="body"><h3>تصميم مدفوع</h3>
+<div class="meta">السعر: 10$</div>
+<div class="actions"><button class="btn buy buy-btn">شراء — 10$</button></div></div></article>
+
+</section>
+
+<p class="note">جميع السجلات محفوظة محلياً (localStorage) — لا شيء يُرسل للخارج.</p>
+
+<!-- Modal للشراء -->
+<div id="modalWrap" style="display:none" class="modal-back">
+  <div class="modal" role="dialog" aria-modal="true">
+    <h3>إتمام الشراء</h3>
+    <p>أدخل اسم المشتري ليتم حفظ السجل محليًا</p>
+    <label>اسم المشتري<input id="buyerNameInput" type="text" placeholder="مثال: أحمد"></label>
+    <div style="margin-top:12px;display:flex;gap:8px;justify-content:flex-start">
+      <button id="confirmBuy" class="btn">تأكيد</button>
+      <button id="cancelBuy" class="btn ghost">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// helpers
+function detectBrowser(ua){ ua = (ua||navigator.userAgent||'').toLowerCase();
+if(ua.includes('firefox')) return 'Firefox';
+if(ua.includes('edg/')) return 'Edge';
+if(ua.includes('opr')||ua.includes('opera')) return 'Opera';
+if(ua.includes('chrome')&&!ua.includes('edg/')&&!ua.includes('opr')) return 'Chrome';
+if(ua.includes('safari')&&!ua.includes('chrome')) return 'Safari';
+return 'متصفح آخر';}
+function nowISO(){ return new Date().toISOString(); }
+
+// localStorage
+const LOG_KEY='ylash_logs';
+function loadLogs(){ try{return JSON.parse(localStorage.getItem(LOG_KEY)||'[]')}catch(e){return[]}}
+function saveLogs(logs){localStorage.setItem(LOG_KEY,JSON.stringify(logs))}
+
+// تنزيل الصور المجانية
+document.querySelectorAll('.download-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const url = btn.dataset.src;
+    const a=document.createElement('a');
+    a.href=url;a.download='';document.body.appendChild(a);a.click();document.body.removeChild(a);
+  });
+});
+
+// شراء الصور المدفوعة
+let activeCard=null;
+const modalWrap=document.getElementById('modalWrap');
+const buyerNameInput=document.getElementById('buyerNameInput');
+document.querySelectorAll('.buy-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    activeCard=e.currentTarget.closest('.card');
+    modalWrap.style.display='flex';
+    buyerNameInput.value=''; buyerNameInput.focus();
+  });
+});
+document.getElementById('cancelBuy').addEventListener('click',()=>modalWrap.style.display='none');
+document.getElementById('confirmBuy').addEventListener('click',()=>{
+  const name=buyerNameInput.value.trim();
+  if(!name){alert('رجاءً أدخل اسم المشتري');return;}
+  const record={
+    id:'log_'+Math.random().toString(36).slice(2,9),
+    ts:nowISO(),
+    productId:activeCard.dataset.id||'',
+    productTitle:activeCard.dataset.title||'',
+    price:activeCard.dataset.price||'',
+    buyerName:name,
+    browser:detectBrowser(),
+    userAgent:navigator.userAgent||''
+  };
+  const logs=loadLogs();logs.unshift(record);saveLogs(logs);
+  modalWrap.style.display='none';
+  alert('تم حفظ السجل محلياً (محاكاة)');
+});
+</script>
+</body>
+</html>
